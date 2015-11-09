@@ -51,8 +51,8 @@ public class Game {
 			player1.setName(name1);
 			player2.setName(name2);
 			
-			GUI.addPlayer(player1.getName(), player1.getBalance(), car1 );
-			GUI.addPlayer(player2.getName(), player2.getBalance(), car2 );
+			GUI.addPlayer(player1.getName(), player1.getBalance()); //car1 
+			GUI.addPlayer(player2.getName(), player2.getBalance()); //car2
 			break;
 		case 3:
 
