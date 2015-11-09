@@ -18,13 +18,57 @@ public class Game {
 
 	public static void main(String[] args) {
 
-
+		
+			
 		// Creates new entities of our subclasses.
 		DiceCup dicecup = new DiceCup();
 		Player player1 = new Player();
 		Player player2 = new Player();
+		Player player3 = new Player();
+		Player player4 = new Player();
+		Player player5 = new Player();
+		Player player6 = new Player();
 		Language language = new Language();
 		
+		//Enter how many plays you wish to play
+		int players = GUI.getUserInteger("How many players do you wish to play", 2 , 6);	
+		
+		switch (players) {
+		case 2:
+			String name1 = GUI.getUserString(language.getPlayer1());
+			String name2 = GUI.getUserString(language.getPlayer2());
+			boolean Continue = false;
+			while (Continue == false) {
+				if (name1.length() < 1 || name1.length() > 15 || name1.indexOf(" ") == 0)
+					name1 = GUI.getUserString(language.getInvalid1());	
+				else if (name2.length() < 1 || name2.length() > 15 || name2.indexOf(" ") == 0)
+					name2 = GUI.getUserString(language.getInvalid2());
+				else if (name1.equalsIgnoreCase(name2))
+					name2 = GUI.getUserString(language.getnotEqual());
+				else
+					Continue = true;
+			}
+			player1.setName(name1);
+			player2.setName(name2);
+			
+			GUI.addPlayer(player1.getName(), player1.getBalance(), car1 );
+			GUI.addPlayer(player2.getName(), player2.getBalance(), car2 );
+			break;
+		case 3:
+
+			break;
+		case 4:
+
+			break;
+		case 5:
+
+			break;
+		case 6:
+
+			break;
+
+		}
+
 		// Initialize fields variable for the game board.
 		int fields = 0;
 		
@@ -43,6 +87,7 @@ public class Game {
 				.typeRacecar()
 				.patternDotted()
 				.build();
+		
 		
 		// New variables for player names, and input thru the GUI.
 		String name1 = GUI.getUserString(language.getPlayer1());
