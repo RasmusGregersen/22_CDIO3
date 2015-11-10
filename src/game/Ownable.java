@@ -7,5 +7,10 @@ public class Ownable extends Field {
 	public int getRent() {
 		return 0;
 	}
+
+	@Override
+	public void landOnField(Player player) {
+		
+	}
 	
 }

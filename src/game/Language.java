@@ -4,6 +4,10 @@ public class Language {
 
 	private String player1 = "Please type player 1's name: "; 
 	private String player2 = "Please type player 2's name: "; 
+	private String player3 = "Please type player 3's name: "; 
+	private String player4 = "Please type player 4's name: "; 
+	private String player5 = "Please type player 5's name: "; 
+	private String player6 = "Please type player 6's name: "; 
 	private String invalid1 = "Invalid name! Please type player 1's name: "; 
 	private String invalid2 = "Invalid name! Please type player 2's name: "; 
 	private String notEqual = "You cannot take another players name! Please choose a new one: "; 
@@ -29,6 +33,18 @@ public class Language {
 	}
 	public String getPlayer2()	{
 		return player2;
+	}
+	public String getPlayer3()	{
+		return player3;
+	}
+	public String getPlayer4()	{
+		return player4;
+	}
+	public String getPlayer5()	{
+		return player5;
+	}
+	public String getPlayer6()	{
+		return player6;
 	}
 	public String getInvalid1()	{
 		return invalid1;

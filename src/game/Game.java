@@ -18,8 +18,8 @@ public class Game {
 
 	public static void main(String[] args) {
 
-		
-			
+
+
 		// Creates new entities of our subclasses.
 		DiceCup dicecup = new DiceCup();
 		Player player1 = new Player();
@@ -28,80 +28,35 @@ public class Game {
 		Player player4 = new Player();
 		Player player5 = new Player();
 		Player player6 = new Player();
+
 		Language language = new Language();
-		
-		//Enter how many plays you wish to play
+
 		int players = GUI.getUserInteger("How many players do you wish to play", 2 , 6);	
-		
-		switch (players) {
-		case 2:
+
+		boolean Continue = false;
+		while (Continue == false) {
 			String name1 = GUI.getUserString(language.getPlayer1());
 			String name2 = GUI.getUserString(language.getPlayer2());
-			boolean Continue = false;
-			while (Continue == false) {
-				if (name1.length() < 1 || name1.length() > 15 || name1.indexOf(" ") == 0)
-					name1 = GUI.getUserString(language.getInvalid1());	
-				else if (name2.length() < 1 || name2.length() > 15 || name2.indexOf(" ") == 0)
-					name2 = GUI.getUserString(language.getInvalid2());
-				else if (name1.equalsIgnoreCase(name2))
-					name2 = GUI.getUserString(language.getnotEqual());
-				else
-					Continue = true;
+			if (players > 2) {
+				String name3;
+				name3 = GUI.getUserString(language.getPlayer3());
 			}
-			player1.setName(name1);
-			player2.setName(name2);
-			
-			GUI.addPlayer(player1.getName(), player1.getBalance()); //car1 
-			GUI.addPlayer(player2.getName(), player2.getBalance()); //car2
-			break;
-		case 3:
+			if (players > 3) {
+				String name4;
+				name4 = GUI.getUserString(language.getPlayer4());
+			}
+			if (players > 4) {
+				String name5;
+				name5 = GUI.getUserString(language.getPlayer5());
+			}
+			if (players > 5) {
+				String name6;
+				name6 = GUI.getUserString(language.getPlayer6());
+			}
 
-			break;
-		case 4:
-
-			break;
-		case 5:
-
-			break;
-		case 6:
-
-			break;
-
-		}
-
-		// Initialize fields variable for the game board.
-		int fields = 0;
-		
-		// Creates new entity for the player cars (pieces).
-		Car car1 = new Car.Builder() // chaining
-			.primaryColor(Color.ORANGE)
-			.secondaryColor(Color.BLACK)
-			.typeRacecar()
-			.patternDotted()
-			.build();
-		
-		
-		Car car2 = new Car.Builder() // chaining
-				.primaryColor(Color.CYAN)
-				.secondaryColor(Color.BLACK)
-				.typeRacecar()
-				.patternDotted()
-				.build();
-		
-		
-		// New variables for player names, and input thru the GUI.
-		String name1 = GUI.getUserString(language.getPlayer1());
-		String name2 = GUI.getUserString(language.getPlayer2());
-		
-		// Boolean variable for while loop.
-		boolean Continue = false;
-		
-		// Checks if the playernames live up to the requirements.
-		while (Continue == false) {
-			// Player name must be between 1 and 15 characters and the first character cannot be space.
 			if (name1.length() < 1 || name1.length() > 15 || name1.indexOf(" ") == 0)
 				name1 = GUI.getUserString(language.getInvalid1());	
-			
+
 			else if (name2.length() < 1 || name2.length() > 15 || name2.indexOf(" ") == 0)
 				name2 = GUI.getUserString(language.getInvalid2());
 			// Player names must not be identical. (Ignores case)
@@ -110,15 +65,32 @@ public class Game {
 			else
 				Continue = true;
 		}
-		// set player names from GUI input.
+
+		int fields = 0;
+		Car car1 = new Car.Builder()
+				.primaryColor(Color.ORANGE)
+				.secondaryColor(Color.BLACK)
+				.typeRacecar()
+				.patternDotted()
+				.build();
+
+
+		Car car2 = new Car.Builder()
+				.primaryColor(Color.CYAN)
+				.secondaryColor(Color.BLACK)
+				.typeRacecar()
+				.patternDotted()
+				.build();
+
+		String name1 = GUI.getUserString(language.getPlayer1());
+		String name2 = GUI.getUserString(language.getPlayer2());
+
 		player1.setName(name1);
 		player2.setName(name2);
-		
-		// add players to the GUI.
+
 		GUI.addPlayer(player1.getName(), player1.getBalance(), car1 );
 		GUI.addPlayer(player2.getName(), player2.getBalance(), car2 );
 
-		// declare next turn to player1. (First turn).
 		Player next = player1;
 
 		// while loop that runs until a winner is found. (win == true).
@@ -136,14 +108,14 @@ public class Game {
 				win = true;
 				break;
 			}
-			
+
 			// Game begins! GUI method displays 'Roll' button. 
 			GUI.getUserButtonPressed(language.getrollDice(), language.getRoll());
 
 			// Calls the method for a new roll, and displays it in the GUI
 			dicecup.newRoll();
 			GUI.setDice(dicecup.getDie1(), dicecup.getDie2());
-			
+
 			// If player1 just rolled, sets next turn to player2.
 			if(next == player1) {
 				next = player2;
@@ -171,8 +143,8 @@ public class Game {
 				GUI.showMessage(language.getField5());
 				break;
 				case 7:  
-				GUI.showMessage(language.getField6());
-				break;
+					GUI.showMessage(language.getField6());
+					break;
 				case 8:  player1.withdraw(70);
 				GUI.showMessage(language.getField7());
 				break;
@@ -192,7 +164,7 @@ public class Game {
 				}
 				// Updates balance in the GUI.
 				GUI.setBalance(player1.getName(), player1.getBalance());
-				
+
 			}
 			else {
 				// Repeat for player 2
@@ -201,7 +173,7 @@ public class Game {
 				fields = dicecup.getSum();
 				GUI.setCar(fields - 1, player2.getName());
 				GUI.showMessage(player2.getName() + language.getRolleda() + dicecup.getDie1() + language.getAnd() + dicecup.getDie2());
-				
+
 				switch (fields) {
 				case 2:  player2.deposit(250);
 				GUI.showMessage(language.getField1());
@@ -219,8 +191,8 @@ public class Game {
 				GUI.showMessage(language.getField5());
 				break;
 				case 7:  
-				GUI.showMessage(language.getField6());
-				break;
+					GUI.showMessage(language.getField6());
+					break;
 				case 8:  player2.withdraw(70);
 				GUI.showMessage(language.getField7());
 				break;
@@ -239,8 +211,8 @@ public class Game {
 				break;
 				}
 				GUI.setBalance(player2.getName(), player2.getBalance());
-				
-				
+
+
 			}
 
 		}
