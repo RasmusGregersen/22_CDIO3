@@ -18,8 +18,6 @@ public class Game {
 
 	public static void main(String[] args) {
 
-
-
 		// Creates new entities of our subclasses.
 		DiceCup dicecup = new DiceCup();
 		Player player1 = new Player();

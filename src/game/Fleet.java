@@ -5,4 +5,15 @@ public class Fleet extends Ownable {
 	private int RENT_2 = 1000;
 	private int RENT_3 = 2000;
 	private int RENT_4 = 4000;
+	
+	public Fleet(String name, int RENT_1, int price) 
+	{
+		super(name, price);
+		this.RENT_1 = RENT_1;
+	}
+	
+	@Override
+	public void landOnField(Player player) {
+		
+	}
 }

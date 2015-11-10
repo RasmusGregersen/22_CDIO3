@@ -8,45 +8,32 @@ import desktop_resources.GUI;
 
 public class GameBoard {
 
-	private String name;
-	private int value;
-	
-	public GameBoard(String name, int value) 
-	{
-		this.name = name;
-		this.value = value;
-		
-		String territory = "Territory";
-		String refuge;
-		String Laborcamp;
-		
-	}
-	
 	public GameBoard()
 	{
 	desktop_fields.Field[] fieldGUI = new desktop_fields.Field[21];
 	Field[] fieldValue = new Field[21];
-	//Color color = Color.RED;
+	Color color = Color.RED;
 	fieldValue[1] = new Territory("Tribe Encampment", 100, 1000);
 	fieldGUI[1] = new Street.Builder()
 				.setTitle(fieldValue[1].getName())
 				.setDescription(fieldValue[1].getClass().getName())
-				.setSubText(fieldValue[1].())
+				.setSubText(fieldValue[1].getPrice())
 				.setRent(fieldValue[1].getRent())
 				.setBgColor(Color.white)
 				.build();
-		
+
 	fieldValue[2] = new Territory("Crater", 300, 1500);
-		fieldGUI[2] = new Street.Builder()
+	fieldGUI[2] = new Street.Builder()
 				.setTitle(fieldValue[2].getName())
 				.setDescription("")
 				.setSubText("3")
 				.setBgColor(Color.GRAY)
 				.build();
 
-		fieldGUI[3] = new Street.Builder()
-				.setTitle("Palace Gates")
-				.setDescription("")
+	fieldValue[3] = new Territory("Mountain", 500, 2000);
+	fieldGUI[3] = new Street.Builder()
+				.setTitle(fieldValue[3].getName())
+				.setDescription(fieldValue[3].getClass().getName())
 				.setSubText("4")
 				.setBgColor(Color.blue)
 				.build();

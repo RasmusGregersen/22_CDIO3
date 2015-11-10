@@ -8,14 +8,9 @@ public abstract class Field {
 		this.name = name;
 	}
 	
-	
 	public String getName() {
 		return name;
 	}
 
-
-
-
 	public abstract void landOnField(Player player);
-	
 }

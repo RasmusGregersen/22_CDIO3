@@ -9,17 +9,12 @@ public class Ownable extends Field {
 		this.price = price;
 	}
 	
-	public int getRent() {
-		return 0;
+	public int getPrice() {
+		return price;
 	}
 
 	@Override
 	public void landOnField(Player player) {
-		
-	}
-
-	public int getPrice() {
-		return price;
-	}
+	}	
 	
 }
