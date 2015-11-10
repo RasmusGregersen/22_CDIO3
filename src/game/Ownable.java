@@ -17,5 +17,9 @@ public class Ownable extends Field {
 	public void landOnField(Player player) {
 		
 	}
+
+	public int getPrice() {
+		return price;
+	}
 	
 }
