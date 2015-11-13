@@ -17,8 +17,8 @@ public class GameBoard {
 	fieldGUI[1] = new Street.Builder()
 				.setTitle(fieldValue[1].getName())
 				.setDescription(fieldValue[1].getClass().getName())
-				.setSubText(fieldValue[1].getPrice())
-				.setRent(fieldValue[1].getRent())
+				.setSubText(""+((Ownable)fieldValue[1]).getPrice())
+				.setRent(""+((Ownable)fieldValue[1]).getRent())
 				.setBgColor(Color.white)
 				.build();
 
