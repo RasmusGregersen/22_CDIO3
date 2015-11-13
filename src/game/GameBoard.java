@@ -112,74 +112,94 @@ public class GameBoard {
 				.setBgColor(Color.WHITE)
 				.build();
 
+		fieldValue[12] = new Refuge ("Walled City", 5000);
 		fieldGUI[12] = new Street.Builder()
-				.setTitle("Goldmine")
-				.setDescription("")
-				.setSubText("12")
-				.setBgColor(color)
+				.setTitle(fieldValue[12].getName())
+				.setDescription(fieldValue[12].getClass().getName())
+				//.setSubText(""+((Ownable)fieldValue[12]).getPrice())
+				//.setRent(""+((Ownable)fieldValue[12]).getRent())
+				.setBgColor(Color.BLACK)
 				.build();
 
+		fieldValue[13] = new Refuge ("Monastery", 500);
 		fieldGUI[13] = new Street.Builder()
-				.setTitle("Goldmine")
-				.setDescription("")
-				.setSubText("12")
-				.setBgColor(color)
+				.setTitle(fieldValue[13].getName())
+				.setDescription(fieldValue[13].getClass().getName())
+				//.setSubText(""+((Ownable)fieldValue[13]).getPrice())
+				//.setRent(""+((Ownable)fieldValue[13]).getRent())
+				.setBgColor(Color.PINK)
 				.build();
 
+		fieldValue[14] = new LaborCamp ("Huts in the mountain", 100, 2500);
 		fieldGUI[14] = new Street.Builder()
-				.setTitle("Goldmine")
-				.setDescription("")
-				.setSubText("12")
-				.setBgColor(color)
+				.setTitle(fieldValue[14].getName())
+				.setDescription(fieldValue[14].getClass().getName())
+				.setSubText(""+((Ownable)fieldValue[14]).getPrice())
+				.setRent(""+((Ownable)fieldValue[14]).getRent())
+				.setBgColor(Color.white)
 				.build();
 
+		fieldValue[15] = new LaborCamp ("The Pit", 100, 2500);
 		fieldGUI[15] = new Street.Builder()
-				.setTitle("Goldmine")
-				.setDescription("")
-				.setSubText("12")
-				.setBgColor(color)
+				.setTitle(fieldValue[15].getName())
+				.setDescription(fieldValue[15].getClass().getName())
+				.setSubText(""+((Ownable)fieldValue[15]).getPrice())
+				.setRent(""+((Ownable)fieldValue[15]).getRent())
+				.setBgColor(Color.white)
 				.build();
 
+		fieldValue[16] = new Tax ("Goldmine", 2000, 0);
 		fieldGUI[16] = new Street.Builder()
-				.setTitle("Goldmine")
-				.setDescription("")
-				.setSubText("12")
-				.setBgColor(color)
+				.setTitle(fieldValue[16].getName())
+				.setDescription(fieldValue[16].getClass().getName())
+				//.setSubText(""+((Ownable)fieldValue[16]).getPrice())
+				//.setRent(""+((Ownable)fieldValue[16]).getRent())
+				.setBgColor(Color.blue)
 				.build();
 
+		fieldValue[17] = new Tax ("Goldmine", 4000, 10);
 		fieldGUI[17] = new Street.Builder()
-				.setTitle("Goldmine")
-				.setDescription("")
-				.setSubText("12")
-				.setBgColor(color)
+				.setTitle(fieldValue[17].getName())
+				.setDescription(fieldValue[17].getClass().getName())
+				//.setSubText(""+((Ownable)fieldValue[17]).getPrice())
+				//.setRent(""+((Ownable)fieldValue[17]).getRent())
+				.setBgColor(Color.blue)
 				.build();
 
+		fieldValue[18] = new Fleet ("Second Sail", 1, 4000);
 		fieldGUI[18] = new Street.Builder()
-				.setTitle("Goldmine")
-				.setDescription("")
-				.setSubText("12")
-				.setBgColor(color)
+				.setTitle(fieldValue[18].getName())
+				.setDescription(fieldValue[18].getClass().getName())
+				.setSubText(""+((Ownable)fieldValue[18]).getPrice())
+				.setRent(""+((Ownable)fieldValue[18]).getRent())
+				.setBgColor(Color.blue)
 				.build();
 
+		fieldValue[19] = new Fleet ("Sea Grover", 1, 4000);
 		fieldGUI[19] = new Street.Builder()
-				.setTitle("Goldmine")
-				.setDescription("")
-				.setSubText("12")
-				.setBgColor(color)
+				.setTitle(fieldValue[19].getName())
+				.setDescription(fieldValue[19].getClass().getName())
+				.setSubText(""+((Ownable)fieldValue[19]).getPrice())
+				.setRent(""+((Ownable)fieldValue[19]).getRent())
+				.setBgColor(Color.blue)
 				.build();
 
+		fieldValue[20] = new Fleet ("The Buccaneers", 1, 4000);
 		fieldGUI[20] = new Street.Builder()
-				.setTitle("Goldmine")
-				.setDescription("")
-				.setSubText("12")
-				.setBgColor(color)
+				.setTitle(fieldValue[20].getName())
+				.setDescription(fieldValue[20].getClass().getName())
+				.setSubText(""+((Ownable)fieldValue[20]).getPrice())
+				.setRent(""+((Ownable)fieldValue[20]).getRent())
+				.setBgColor(Color.blue)
 				.build();
 
+		fieldValue[21] = new Fleet ("Private armade", 1, 4000);
 		fieldGUI[21] = new Street.Builder()
-				.setTitle("Goldmine")
-				.setDescription("")
-				.setSubText("12")
-				.setBgColor(color)
+				.setTitle(fieldValue[21].getName())
+				.setDescription(fieldValue[21].getClass().getName())
+				.setSubText(""+((Ownable)fieldValue[21]).getPrice())
+				.setRent(""+((Ownable)fieldValue[21]).getRent())
+				.setBgColor(Color.blue)
 				.build();
 
 		GUI.create(fieldGUI);
