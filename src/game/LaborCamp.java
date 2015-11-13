@@ -1,6 +1,6 @@
-                          package game;
+package game;
 
-public abstract class LaborCamp extends Ownable {
+public class LaborCamp extends Ownable {
 	private int baseRent;
 	
 	public LaborCamp(String name, int baseRent, int price) 
@@ -9,8 +9,21 @@ public abstract class LaborCamp extends Ownable {
 		this.baseRent = baseRent;
 	}
 	
+	
+	
+	public int getBaseRent() {
+		return baseRent;
+	}
+
+
+
 	@Override
 	public void landOnField(Player player) {
 		
+	}
+
+	@Override
+	public int getRent() {
+		return 0;
 	}
 }

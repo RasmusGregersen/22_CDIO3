@@ -116,8 +116,7 @@ public class GameBoard {
 		fieldGUI[12] = new Street.Builder()
 				.setTitle(fieldValue[12].getName())
 				.setDescription(fieldValue[12].getClass().getName())
-				//.setSubText(""+((Ownable)fieldValue[12]).getPrice())
-				//.setRent(""+((Ownable)fieldValue[12]).getRent())
+				.setSubText(""+((Refuge)fieldValue[12]).getBonus())
 				.setBgColor(Color.BLACK)
 				.build();
 
@@ -125,8 +124,7 @@ public class GameBoard {
 		fieldGUI[13] = new Street.Builder()
 				.setTitle(fieldValue[13].getName())
 				.setDescription(fieldValue[13].getClass().getName())
-				//.setSubText(""+((Ownable)fieldValue[13]).getPrice())
-				//.setRent(""+((Ownable)fieldValue[13]).getRent())
+				.setSubText(""+((Refuge)fieldValue[12]).getBonus())
 				.setBgColor(Color.PINK)
 				.build();
 
@@ -135,7 +133,7 @@ public class GameBoard {
 				.setTitle(fieldValue[14].getName())
 				.setDescription(fieldValue[14].getClass().getName())
 				.setSubText(""+((Ownable)fieldValue[14]).getPrice())
-				.setRent(""+((Ownable)fieldValue[14]).getRent())
+				.setRent(""+((LaborCamp)fieldValue[14]).getBaseRent())
 				.setBgColor(Color.white)
 				.build();
 
@@ -144,7 +142,7 @@ public class GameBoard {
 				.setTitle(fieldValue[15].getName())
 				.setDescription(fieldValue[15].getClass().getName())
 				.setSubText(""+((Ownable)fieldValue[15]).getPrice())
-				.setRent(""+((Ownable)fieldValue[15]).getRent())
+				.setRent(""+((LaborCamp)fieldValue[14]).getBaseRent())
 				.setBgColor(Color.white)
 				.build();
 
@@ -152,17 +150,15 @@ public class GameBoard {
 		fieldGUI[16] = new Street.Builder()
 				.setTitle(fieldValue[16].getName())
 				.setDescription(fieldValue[16].getClass().getName())
-				//.setSubText(""+((Ownable)fieldValue[16]).getPrice())
-				//.setRent(""+((Ownable)fieldValue[16]).getRent())
+				.setSubText(""+((Tax)fieldValue[16]).getTaxedAmount())
 				.setBgColor(Color.blue)
 				.build();
 
-		fieldValue[17] = new Tax ("Goldmine", 4000, 0.1);
+		fieldValue[17] = new Tax ("Caravan", 4000, 0.1);
 		fieldGUI[17] = new Street.Builder()
 				.setTitle(fieldValue[17].getName())
 				.setDescription(fieldValue[17].getClass().getName())
-				//.setSubText(""+((Ownable)fieldValue[17]).getPrice())
-				//.setRent(""+((Ownable)fieldValue[17]).getRent())
+				.setSubText(""+((Tax)fieldValue[17]).getTaxedAmount())
 				.setBgColor(Color.blue)
 				.build();
 

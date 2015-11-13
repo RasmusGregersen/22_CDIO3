@@ -6,7 +6,7 @@ public class Tax extends Field {
 	private double percentage = 1.0;
 	private double taxRate;
 
-	Player player = new Player();
+//	Player player = new Player();
 
 	public Tax(String name, int taxedAmount, double taxRate) 
 	{
@@ -15,18 +15,26 @@ public class Tax extends Field {
 		this.taxRate = taxRate;
 	}
 
-	public int TaxedTotalAssets() {
+	
+	
+//	public int TaxedTotalAssets() {
+//
+//		if (player.getBalance()*(taxedAmount) < taxRate)
+//
+//			player.getBalance() = player.getBalance()*(percentage-taxedAmount);
+//
+//		else if (player.getBalance()*(taxedAmount) > taxRate)
+//
+//			player.getBalance() = player.getBalance()-taxRate;
+//
+//		return player.getBalance();
+//	}
 
-		if (player.getBalance()*(taxedAmount) < taxRate)
 
-			player.getBalance() = player.getBalance()*(percentage-taxedAmount);
-
-		else if (player.getBalance()*(taxedAmount) > taxRate)
-
-			player.getBalance() = player.getBalance()-taxRate;
-
-		return player.getBalance();
+	public int getTaxedAmount() {
+		return taxedAmount;
 	}
+
 
 
 	@Override

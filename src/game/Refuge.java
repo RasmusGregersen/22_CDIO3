@@ -9,6 +9,10 @@ public class Refuge extends Field {
 		this.bonus = bonus;
 	}
 
+	public int getBonus() {
+		return bonus;
+	}
+	
 	@Override
 	public void landOnField(Player player) {
 		player.deposit(bonus);
