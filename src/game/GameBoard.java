@@ -30,6 +30,8 @@ public class GameBoard {
 				.setBgColor(Color.GRAY)
 				.build();
 
+			//See this change?
+	
 	fieldValue[3] = new Territory("Mountain", 500, 2000);
 	fieldGUI[3] = new Street.Builder()
 				.setTitle(fieldValue[3].getName())
