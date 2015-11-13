@@ -157,7 +157,7 @@ public class GameBoard {
 				.setBgColor(Color.blue)
 				.build();
 
-		fieldValue[17] = new Tax ("Goldmine", 4000, 10);
+		fieldValue[17] = new Tax ("Goldmine", 4000, 0.1);
 		fieldGUI[17] = new Street.Builder()
 				.setTitle(fieldValue[17].getName())
 				.setDescription(fieldValue[17].getClass().getName())

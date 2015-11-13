@@ -2,13 +2,13 @@ package game;
 
 public class Tax extends Field {
 
-	private double taxedAmount;
+	private int taxedAmount;
 	private double percentage = 1.0;
-	private int taxRate;
+	private double taxRate;
 
 	Player player = new Player();
 
-	public Tax(String name, double taxedAmount, int taxRate) 
+	public Tax(String name, int taxedAmount, double taxRate) 
 	{
 		super(name);
 		this.taxedAmount = taxedAmount;
