@@ -10,6 +10,7 @@ package game;
 public class Player {
 	private String name;
 	private Balance balance = new Balance();
+	private int fleets = 0;
 	
 	public int getBalance() {
 		return balance.getBalance();
@@ -31,6 +32,13 @@ public class Player {
 	// method to set player name.
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public int getFleets() {
+		return fleets;
+	}
+	public void setFleets() {
+		fleets++;
 	}
 	@Override
 	public String toString() {
