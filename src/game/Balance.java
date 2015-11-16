@@ -9,8 +9,8 @@ package game;
 
 public class Balance {
 	
-	// Balance variable, starting at 1000.
-	private int balance = 1000;
+	// Balance variable, starting at 30000.
+	private int balance = 30000;
 
 	// Method to withdraw from the balance
 	public void withdraw(int balance) {
