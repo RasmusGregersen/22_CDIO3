@@ -1,5 +1,7 @@
 package game;
 
+import desktop_resources.GUI;
+
 public class Tax extends Field {
 
 	private int taxedAmount;
@@ -19,6 +21,7 @@ public class Tax extends Field {
 
 	@Override
 	public void landOnField(Player player) {
+		//GUI.getUserLeftButtonPressed("You landed on the tax field. Pay either " + taxedAmount + " or 10% of your assets.", trueButton, falseButton)
 		if (player.getBalance()*(taxRate) < taxedAmount){
 			player.withdraw(taxedAmount);
 		}
