@@ -20,7 +20,7 @@ public class Game {
 		
 		GameBoard gameboard = new GameBoard();
 		DiceCup dicecup = new DiceCup();
-		int players = GUI.getUserInteger("How many players do you wish to play", 2 , 6);	
+		int players = GUI.getUserInteger("How many players do you wish to play? (2-6 players)", 2 , 6);	
 		Player[] player = new Player[players];
 		
 		for (int i=0; i < players; i++) {
