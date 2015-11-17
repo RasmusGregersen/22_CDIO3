@@ -54,7 +54,6 @@ public class Game {
 			players[i] = tmp;
 			// Mangler at tage højde for at de skal have forskellige navne + biler er tilfældige.
 		}
-		
 		boolean win = false;
 		while (win == false)
 		{

@@ -11,6 +11,7 @@ public class Player {
 	private String name;
 	private Balance balance = new Balance();
 	private int fleets = 0;
+	private int FieldPos = 123;
 	
 	public int getBalance() {
 		return balance.getBalance();
@@ -40,10 +41,26 @@ public class Player {
 	public void setFleets() {
 		fleets++;
 	}
+	
+	public int getFieldPos() {
+	
+		return FieldPos;
+	}
+	public int setFieldPos() {
+		
+		if (FieldPos > 21)
+			return FieldPos % 21;
+		else
+			return FieldPos;
+	}
+	
 	@Override
 	public String toString() {
-		return "##############################\nPlayer [name=" + name + ", balance=" + balance + "]\n##############################";
-		//return "Player [name=" + name + ", balance=" + balance + "]";
+		return "Player [" + (name != null ? "name=" + name + ", " : "")
+				+ (balance != null ? "balance=" + balance + ", " : "") + "fleets=" + fleets + ", FieldPos=" + FieldPos
+				+ "]";
 	}
+	
+	
 	
 }
