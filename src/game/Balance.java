@@ -22,8 +22,8 @@ public class Balance {
 	}
 	// Method to get the current balance, and corrects it to 0 or 3000 if less or more.
 	public int getBalance()	{
-		if (balance>3000)
-			balance = 3000;
+		if (balance>30000)
+			balance = 30000;
 		else if (balance<0)
 			balance = 0;
 		return balance;
