@@ -15,53 +15,68 @@ import desktop_codebehind.Car.Builder;
 import desktop_resources.GUI;
 
 public class Game {
+	private DiceCup dicecup = new DiceCup();
 	
 	public static void main(String[] args) {
+		Game game = new Game();
+		game.go();
+	}
+	
+	public void go(){
 		
 		GameBoard gameboard = new GameBoard();
-		DiceCup dicecup = new DiceCup();
-		int players = GUI.getUserInteger("How many players do you wish to play? (2-6 players)", 2 , 6);	
-		Player[] player = new Player[players];
+		int playerCount = GUI.getUserInteger("How many players do you wish to play", 2 , 6);	
+		Player[] players = new Player[playerCount];
 		
-		for (int i=0; i < players; i++) {
-			player[i] = new Player();
+		
+		for (int i=0; i < playerCount; i++) {
+			Player tmp = new Player();
+		EnterName:	
 			while (true) {
-				String name = GUI.getUserString("Please enter the name of player" + (i+1));
-				if (name.length() < 1 || name.length() > 15 || name.indexOf(" ") == 0)
+				String name = GUI.getUserString("Please enter the name of player" + (i+1)).trim();
+				if (name.length() < 1 || name.length() > 15 || name.indexOf(" ") == 0){
 					GUI.showMessage("Invalid name!");
-				else 
-				{
-					GUI.addPlayer(name, player[i].getBalance());
-					player[i].setName(name);
-					break;
+					continue;
 				}
+				
+				for(Player p : players){
+					if(p != null && p.getName().equals(name)) {
+						GUI.showMessage("Invalid name!");
+						continue EnterName;
+					}
 				}
+				
+				GUI.addPlayer(name, tmp.getBalance());
+				tmp.setName(name);
+				break;
+			
+			}
+			players[i] = tmp;
 			// Mangler at tage højde for at de skal have forskellige navne + biler er tilfældige.
 		}
 		
 		boolean win = false;
 		while (win == false)
 		{
-			turn(player[0]);
-			turn(player[1]);
-			if (players > 2)
-			turn(player[2]);
-			if (players > 3)
-			turn(player[3]);
-			if (players > 4)
-			turn(player[4]);
-			if (players > 5)
-			turn(player[5]);
+			this.turn(players[0]);
+			turn(players[1]);
+			if (playerCount > 2)
+			turn(players[2]);
+			if (playerCount > 3)
+			turn(players[3]);
+			if (playerCount > 4)
+			turn(players[4]);
+			if (playerCount > 5)
+			turn(players[5]);
+			
 		}
 	}
 
-	private static void turn(Player player) {
+	private void turn(Player player) {
 		GUI.getUserButtonPressed("Roll die", player.getName()+ "'s turn");
 		//GUI.removeCar(0, player.getName());
-		int dice1 = (int) Math.ceil(Math.random()*6);
-		int dice2 = (int) Math.ceil(Math.random()*6);
-		int dicesum = dice1+dice2;
-		GUI.setDice(dice1, dice2);
-		GUI.setCar(dicesum, player.getName());
+		dicecup.newRoll();
+		GUI.setDice(dicecup.getDie1(),dicecup.getDie2());
+		GUI.setCar( 0, player.getName());
 	}
 }
