@@ -1,7 +1,5 @@
 package game;
 
-import desktop_resources.GUI;
-
 public class Tax2 extends Field {
 
 	private int tax;

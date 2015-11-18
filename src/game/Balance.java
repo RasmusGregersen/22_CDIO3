@@ -7,8 +7,6 @@
 
 package game;
 
-import org.omg.Messaging.SyncScopeHelper;
-
 public class Balance {
 
 	// Balance variable, starting at 30000.
