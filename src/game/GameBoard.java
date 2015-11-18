@@ -145,19 +145,19 @@ public class GameBoard {
 				.setBgColor(Color.ORANGE)
 				.build();
 
-		fieldValue[15] = new Tax ("Goldmine", 2000, 0);
+		fieldValue[15] = new Tax2 ("Goldmine", 2000);
 		fieldGUI[15] = new Street.Builder()
 				.setTitle(fieldValue[15].getName())
 				.setDescription(fieldValue[15].getClass().getSimpleName())
-				.setSubText(""+((Tax)fieldValue[15]).getTaxedAmount())
+				.setSubText(""+((Tax)fieldValue[15]).getTax())
 				.setBgColor(Color.RED)
 				.build();
 
-		fieldValue[16] = new Tax ("Caravan", 4000, 0.1);
+		fieldValue[16] = new Tax ("Caravan", 4000);
 		fieldGUI[16] = new Street.Builder()
 				.setTitle(fieldValue[16].getName())
 				.setDescription(fieldValue[16].getClass().getSimpleName())
-				.setSubText(""+((Tax)fieldValue[16]).getTaxedAmount())
+				.setSubText(""+((Tax)fieldValue[16]).getTax())
 				.setBgColor(Color.RED)
 				.build();
 
