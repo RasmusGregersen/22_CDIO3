@@ -15,7 +15,7 @@ public class Territory extends Ownable {
 
 	@Override
 	public void landOnField(Player player) {
-		if (super.getOwner().equals("")) { // IKKE HAR EJER
+		if (super.getOwner() == null) { // IKKE HAR EJER
 			if (GUI.getUserLeftButtonPressed("This Territory has no owner, would you like to buy it?", "Yes", "No")) 
 			{
 				player.withdraw(super.getPrice());
