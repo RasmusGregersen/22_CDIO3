@@ -7,11 +7,19 @@ import desktop_fields.Street;
 import desktop_resources.GUI;
 
 public class GameBoard {
+	private static Field[] fieldValue = new Field[21];
+	
+	public Field getField(int fieldID) {
+		return fieldValue[fieldID];
+		}
+	
+	public static void setField(int fieldID, Player player) {
+		fieldValue[fieldID].landOnField(player);
+	}
 	
 	public GameBoard()
 	{
 		desktop_fields.Field[] fieldGUI = new desktop_fields.Field[21];
-		Field[] fieldValue = new Field[21];
 		fieldValue[0] = new Territory("Tribe Encampment", 100, 1000);
 		fieldGUI[0] = new Street.Builder()
 				.setTitle(fieldValue[0].getName())
@@ -149,7 +157,7 @@ public class GameBoard {
 		fieldGUI[15] = new Street.Builder()
 				.setTitle(fieldValue[15].getName())
 				.setDescription(fieldValue[15].getClass().getSimpleName())
-				.setSubText(""+((Tax)fieldValue[15]).getTax())
+				.setSubText(""+((Tax2)fieldValue[15]).getTax())
 				.setBgColor(Color.RED)
 				.build();
 
@@ -201,4 +209,6 @@ public class GameBoard {
 		
 		
 	}
+	
+
 }
