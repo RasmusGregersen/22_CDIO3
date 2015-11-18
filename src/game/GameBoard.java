@@ -7,7 +7,7 @@ import desktop_fields.Street;
 import desktop_resources.GUI;
 
 public class GameBoard {
-
+	
 	public GameBoard()
 	{
 		desktop_fields.Field[] fieldGUI = new desktop_fields.Field[21];
@@ -198,6 +198,7 @@ public class GameBoard {
 				.build();
 
 		GUI.create(fieldGUI);
+		
+		
 	}
-
 }

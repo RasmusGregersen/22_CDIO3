@@ -11,7 +11,7 @@ public class Player {
 	private String name;
 	private Balance balance = new Balance();
 	private int fleets = 0;
-	private int FieldPos = 123;
+	private int FieldPos = 0;
 	
 	public int getBalance() {
 		return balance.getBalance();
@@ -41,17 +41,15 @@ public class Player {
 	public void setFleets() {
 		fleets++;
 	}
-	
+
 	public int getFieldPos() {
-	
 		return FieldPos;
 	}
-	public int setFieldPos() {
-		
+	public void setFieldPos(int FieldPos) {
 		if (FieldPos > 21)
-			return FieldPos % 21;
+			this.FieldPos = FieldPos % 21;
 		else
-			return FieldPos;
+			this.FieldPos = FieldPos;
 	}
 	
 	@Override
