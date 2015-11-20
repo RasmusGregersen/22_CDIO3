@@ -28,7 +28,7 @@ public class LaborCamp extends Ownable {
 			GUI.showMessage("Welcome back!");
 		}
 		else { // HAR EJER
-			GUI.showMessage("You have landed on " + super.getOwner() + "'s Labor Camp. Rent is " + baseRent);
+			GUI.showMessage("You have landed on " + super.getOwner().getName() + "'s Labor Camp. Rent is " + baseRent);
 			player.withdraw(baseRent);
 			super.getOwner().deposit(baseRent);
 		}	

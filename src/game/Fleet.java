@@ -38,7 +38,7 @@ public class Fleet extends Ownable {
 				rent = RENT_3;
 			else if (super.getOwner().getFleets() == 4)
 				rent = RENT_4;
-			GUI.showMessage("You have landed on " + super.getOwner() + "'s Fleet. Rent is " + rent);
+			GUI.showMessage("You have landed on " + super.getOwner().getName() + "'s Fleet. Rent is " + rent);
 			player.withdraw(rent);
 			super.getOwner().deposit(rent);
 		}

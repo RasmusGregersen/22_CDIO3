@@ -26,7 +26,7 @@ public class Territory extends Ownable {
 			GUI.showMessage("Welcome back!");
 		}
 		else { // HAR EJER
-			GUI.showMessage("You have landed on " + super.getOwner() + "'s Territory. Rent is " + rent);
+			GUI.showMessage("You have landed on " + super.getOwner().getName() + "'s Territory. Rent is " + rent);
 			player.withdraw(rent);
 			super.getOwner().deposit(rent);
 		}	
