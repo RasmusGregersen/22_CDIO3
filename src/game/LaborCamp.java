@@ -23,6 +23,7 @@ public class LaborCamp extends Ownable {
 				player.withdraw(super.getPrice());
 				super.setOwner(player);
 				GUI.setOwner(player.getFieldPos(), player.getName());
+				super.getOwner().setLaborcamps();
 			}
 		}
 		else if (super.getOwner().getBalance() == 0) {
@@ -37,9 +38,19 @@ public class LaborCamp extends Ownable {
 			GUI.showMessage("Welcome back!");
 		}
 		else { // HAR EJER
-			GUI.showMessage("You have landed on " + super.getOwner().getName() + "'s Labor Camp. Rent is " + baseRent);
-			player.withdraw(baseRent);
-			super.getOwner().deposit(baseRent);
+			int rent = 0;
+			GUI.showMessage("You have landed on " + super.getOwner().getName() + "'s Labor Camp.");
+			GUI.getUserButtonPressed("Roll the dice to determine the rent", "Roll Dice");
+			DiceCup dicecup = new DiceCup();
+			dicecup.newRoll();
+			GUI.setDice(dicecup.getDie1(), dicecup.getDie2());
+			if (super.getOwner().getLaborcamps() == 1)
+				rent = dicecup.getSum() * baseRent;
+			else if (super.getOwner().getLaborcamps() == 2)
+				rent = dicecup.getSum() * baseRent * 2;
+			GUI.showMessage("The rent has been determined to be: " + rent);
+			player.withdraw(rent);
+			super.getOwner().deposit(rent);
 		}	
 	}
 

@@ -12,6 +12,7 @@ public class Player {
 	private Balance balance = new Balance();
 	private int fleets = 0;
 	private int FieldPos = 0;
+	private int laborcamps = 0;
 	
 	public int getBalance() {
 		return balance.getBalance();
@@ -42,6 +43,12 @@ public class Player {
 		fleets++;
 	}
 
+	public int getLaborcamps() {
+		return laborcamps;
+	}
+	public void setLaborcamps() {
+		laborcamps++;
+	}
 	public int getFieldPos() {
 		return FieldPos;
 	}
