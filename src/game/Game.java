@@ -102,16 +102,18 @@ public class Game {
 		boolean win = false;
 		while (win == false)
 		{
-			this.turn(players[0]);
-			turn(players[1]);
-			if (playerCount > 2)
-			turn(players[2]);
-			if (playerCount > 3)
-			turn(players[3]);
-			if (playerCount > 4)
-			turn(players[4]);
-			if (playerCount > 5)
-			turn(players[5]);
+			if (players[0].getBalance() > 0)
+				turn(players[0]);
+			if (players[1].getBalance() > 0)
+				turn(players[1]);
+			if (playerCount > 2 && players[2].getBalance() > 0)
+				turn(players[2]);
+			if (playerCount > 3 && players[3].getBalance() > 0)
+				turn(players[3]);
+			if (playerCount > 4 && players[4].getBalance() > 0)
+				turn(players[4]);
+			if (playerCount > 5 && players[5].getBalance() > 0)
+				turn(players[5]);
 			
 		}
 	}
@@ -121,10 +123,18 @@ public class Game {
 		GUI.removeAllCars(player.getName());
 		dicecup.newRoll();
 		GUI.setDice(dicecup.getDie1(),dicecup.getDie2());
-		player.setFieldPos(dicecup.getSum());
+		player.setFieldPos(dicecup.getSum());			
 		GUI.setCar(player.getFieldPos(), player.getName());
 		GameBoard.setField(player.getFieldPos(), player);
 		GUI.setBalance(player.getName(), player.getBalance());
+	}
+	
+	private void removeplayer(Player player) {
+		// Remove player metode - Fjern owner fra GUI, fjern bil fra GUI, fjern evt. Balance. (Ændre navn).
+		for (int i=0; i < 21; i++){
+			
+		}
+			
 	}
 
 }

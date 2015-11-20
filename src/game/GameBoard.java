@@ -14,7 +14,7 @@ public class GameBoard {
 		}
 	
 	public static void setField(int fieldID, Player player) {
-		fieldValue[fieldID].landOnField(player);
+		fieldValue[fieldID - 1].landOnField(player);
 	}
 	
 	public GameBoard()
