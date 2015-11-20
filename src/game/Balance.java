@@ -16,6 +16,8 @@ public class Balance {
 	public void withdraw(int balance) {
 		if (balance <0)
 			System.out.println("You can't withdraw negative balance");
+		else if (balance > this.balance)
+			this.balance = 0;
 		else
 			this.balance = this.balance - balance;
 	}
@@ -28,10 +30,6 @@ public class Balance {
 	}
 	// Method to get the current balance, and corrects it to 0 or 3000 if less or more.
 	public int getBalance()	{
-		if (balance>30000)
-			balance = 30000;
-		else if (balance<0)
-			balance = 0;
 		return balance;
 	}
 	// toString method to keep track of variables in the class - For troubleshooting.

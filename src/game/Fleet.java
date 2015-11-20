@@ -18,11 +18,20 @@ public class Fleet extends Ownable {
 	@Override
 	public void landOnField(Player player) {
 		if (super.getOwner() == null) { // IKKE HAR EJER
-			if (GUI.getUserLeftButtonPressed("This Territory has no owner, would you like to buy it?", "Yes", "No")) 
+			if (GUI.getUserLeftButtonPressed("This Fleet has no owner, would you like to buy it?", "Yes", "No")) 
 			{
 				player.withdraw(super.getPrice());
 				super.setOwner(player);
 				player.setFleets();
+				GUI.setOwner(player.getFieldPos(), player.getName());
+			}
+		}
+		else if (super.getOwner().getBalance() == 0) {
+			if (GUI.getUserLeftButtonPressed("This Fleet's owner is bankrupt, would you like to buy it?", "Yes", "No")) 
+			{
+				player.withdraw(super.getPrice());
+				super.setOwner(player);
+				GUI.setOwner(player.getFieldPos(), player.getName());
 			}
 		}
 		else if (player == super.getOwner()) {

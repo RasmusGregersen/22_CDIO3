@@ -20,6 +20,15 @@ public class Territory extends Ownable {
 			{
 				player.withdraw(super.getPrice());
 				super.setOwner(player);
+				GUI.setOwner(player.getFieldPos(), player.getName());
+			}
+		}
+		else if (super.getOwner().getBalance() == 0) {
+			if (GUI.getUserLeftButtonPressed("This Territory's owner is bankrupt, would you like to buy it?", "Yes", "No")) 
+			{
+				player.withdraw(super.getPrice());
+				super.setOwner(player);
+				GUI.setOwner(player.getFieldPos(), player.getName());
 			}
 		}
 		else if (player == super.getOwner()) {
