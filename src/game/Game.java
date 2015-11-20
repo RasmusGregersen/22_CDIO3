@@ -118,14 +118,13 @@ public class Game {
 	
 	private void turn(Player player) {
 		GUI.getUserButtonPressed("Roll die", player.getName()+ "'s turn");
-		//GUI.removeCar(player.getFieldPos(), player.getName());
+		GUI.removeAllCars(player.getName());
 		dicecup.newRoll();
-		player.setFieldPos(player.getFieldPos() + dicecup.getSum());
 		GUI.setDice(dicecup.getDie1(),dicecup.getDie2());
+		player.setFieldPos(dicecup.getSum());
 		GUI.setCar(player.getFieldPos(), player.getName());
 		GameBoard.setField(player.getFieldPos(), player);
-		
-		
+		GUI.setBalance(player.getName(), player.getBalance());
 	}
 
 }

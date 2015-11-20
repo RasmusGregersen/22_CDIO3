@@ -46,10 +46,9 @@ public class Player {
 		return FieldPos;
 	}
 	public void setFieldPos(int FieldPos) {
-		if (FieldPos > 21)
-			this.FieldPos = FieldPos % 21;
-		else
-			this.FieldPos = FieldPos;
+		this.FieldPos = FieldPos + this.FieldPos;
+		if (this.FieldPos > 21)
+			this.FieldPos = this.FieldPos % 21;
 	}
 	
 	@Override
