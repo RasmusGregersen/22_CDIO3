@@ -35,7 +35,7 @@ public class Fleet extends Ownable {
 			}
 		}
 		else if (player == super.getOwner()) {
-			GUI.showMessage("Welcome back!");
+			GUI.displayChanceCard("Welcome back!");
 		}
 		else { // HAR EJER
 			int rent = 0;
@@ -47,7 +47,7 @@ public class Fleet extends Ownable {
 				rent = RENT_3;
 			else if (super.getOwner().getFleets() == 4)
 				rent = RENT_4;
-			GUI.showMessage("You have landed on " + super.getOwner().getName() + "'s Fleet. Rent is " + rent);
+			GUI.displayChanceCard("You have landed on " + super.getOwner().getName() + "'s Fleet. Rent is " + rent);
 			player.withdraw(rent);
 			super.getOwner().deposit(rent);
 		}

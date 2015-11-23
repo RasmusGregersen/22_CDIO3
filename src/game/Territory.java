@@ -32,10 +32,10 @@ public class Territory extends Ownable {
 			}
 		}
 		else if (player == super.getOwner()) {
-			GUI.showMessage("Welcome back!");
+			GUI.displayChanceCard("Welcome back!");
 		}
 		else { // HAR EJER
-			GUI.showMessage("You have landed on " + super.getOwner().getName() + "'s Territory. Rent is " + rent);
+			GUI.displayChanceCard("You have landed on " + super.getOwner().getName() + "'s Territory. Rent is " + rent);
 			player.withdraw(rent);
 			super.getOwner().deposit(rent);
 		}	

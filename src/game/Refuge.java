@@ -18,7 +18,7 @@ public class Refuge extends Field {
 	@Override
 	public void landOnField(Player player) {
 		player.deposit(bonus);
-		GUI.showMessage("Congratulations! You win a bonus of " + bonus);
+		GUI.displayChanceCard("Congratulations! You win a bonus of " + bonus);
 	}
 	
 }
