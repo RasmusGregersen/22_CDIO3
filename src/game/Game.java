@@ -16,6 +16,7 @@ import desktop_resources.GUI;
 
 public class Game {
 	private DiceCup dicecup = new DiceCup();
+	private int playerCount;
 	
 	public static void main(String[] args) {
 		Game game = new Game();
@@ -24,9 +25,11 @@ public class Game {
 	
 	public void go(){
 		GameBoard gameboard = new GameBoard();
-		int playerCount = GUI.getUserInteger("How many players do you wish to play", 2 , 6);	
-		Player[] players = new Player[playerCount];
+		playerCount = GUI.getUserInteger("How many players do you wish to play", 2 , 6);	
+		Player[] players = new Player[6];
 		Car[] cars = new Car[playerCount];
+		
+		
 		
 		cars[0] = new Car.Builder()
 				.primaryColor(Color.BLUE)
@@ -100,25 +103,26 @@ public class Game {
 			// Mangler at tage højde for at de skal have forskellige navne + biler er tilfældige.
 		}
 		boolean win = false;
-		while (win == false)
+		while (playerCount > 1)
 		{
 			if (players[0].getBalance() > 0)
 				turn(players[0]);
 			if (players[1].getBalance() > 0)
 				turn(players[1]);
-			if (playerCount > 2 && players[2].getBalance() > 0)
+			if (players[2] != null && players[2].getBalance() > 0)
 				turn(players[2]);
-			if (playerCount > 3 && players[3].getBalance() > 0)
+			if (players[3] != null && players[3].getBalance() > 0)
 				turn(players[3]);
-			if (playerCount > 4 && players[4].getBalance() > 0)
+			if (players[4] != null && players[4].getBalance() > 0)
 				turn(players[4]);
-			if (playerCount > 5 && players[5].getBalance() > 0)
+			if (players[5] != null  && players[5].getBalance() > 0)
 				turn(players[5]);
-			
 		}
+		GUI.showMessage("Congrats you have won!");
 	}
 	
 	private void turn(Player player) {
+		
 		GUI.getUserButtonPressed("Roll die", player.getName()+ "'s turn");
 		GUI.removeAllCars(player.getName());
 		dicecup.newRoll();
@@ -127,14 +131,14 @@ public class Game {
 		GUI.setCar(player.getFieldPos(), player.getName());
 		GameBoard.setField(player.getFieldPos(), player);
 		GUI.setBalance(player.getName(), player.getBalance());
+		if (player.getBalance() == 0)
+			removeplayer(player);
 	}
 	
-	private void removeplayer(Player player) {
+	public void removeplayer(Player player) {
 		// Remove player metode - Fjern owner fra GUI, fjern bil fra GUI, fjern evt. Balance. (Ændre navn).
-		for (int i=0; i < 21; i++){
-			
-		}
-			
+		playerCount = playerCount - 1;
+		GUI.removeAllCars(player.getName());
 	}
 
 }
