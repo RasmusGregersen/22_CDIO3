@@ -1,5 +1,6 @@
 package fields;
 
+import desktop_resources.GUI;
 import game.Player;
 
 public class Tax2 extends Field {
@@ -18,6 +19,7 @@ public class Tax2 extends Field {
 
 	@Override
 	public void landOnField(Player player) {
+		GUI.displayChanceCard(player.getName() + ": You have landed on the Tax field. " + tax + " has been withdrawn from your balance.");
 		player.withdrawBalance(tax);
 	}
 	@Override

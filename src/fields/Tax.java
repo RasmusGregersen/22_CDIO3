@@ -19,7 +19,7 @@ public class Tax extends Field {
 
 	@Override
 	public void landOnField(Player player) {
-		if (GUI.getUserLeftButtonPressed("You landed on the tax field. Pay either " + tax + " or 10% of your assets.", "Fixed Tax", "10%" ))
+		if (GUI.getUserLeftButtonPressed(player.getName() + ": You landed on the tax field. Pay either " + tax + " or 10% of your assets.", "Fixed Tax", "10%" ))
 			player.withdrawBalance(tax);
 		else
 			player.withdrawBalance(player.getBalance()/10);

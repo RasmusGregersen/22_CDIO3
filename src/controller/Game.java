@@ -120,7 +120,7 @@ public class Game {
 			if (players[5] != null  && players[5].getBalance() > 0)
 				turn(players[5]);
 		}
-		GUI.showMessage("Congrats you have won!");
+		GUI.showMessage("Congratulations! You have won!");
 	}
 	
 	private void turn(Player player) {

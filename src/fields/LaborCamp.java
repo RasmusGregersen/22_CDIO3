@@ -20,11 +20,11 @@ public class LaborCamp extends Ownable {
 	@Override
 	public void landOnField(Player player) {
 		if (player.getBalance() < super.getPrice()) {
-			GUI.displayChanceCard("You cannot afford this property.");
+			GUI.displayChanceCard(player.getName() + ": You cannot afford this property.");
 		}
 
 		else if (super.getOwner() == null) { // IKKE HAR EJER
-			if (GUI.getUserLeftButtonPressed("This Labor Camp has no owner, would you like to buy it?", "Yes", "No")) 
+			if (GUI.getUserLeftButtonPressed(player.getName() + ": This Labor Camp has no owner, would you like to buy it?", "Yes", "No")) 
 			{
 				player.withdrawBalance(super.getPrice());
 				super.setOwner(player);
@@ -33,7 +33,7 @@ public class LaborCamp extends Ownable {
 			}
 		}
 		else if (super.getOwner().getBalance() == 0) {
-			if (GUI.getUserLeftButtonPressed("This Labor Camp's owner is bankrupt, would you like to buy it?", "Yes", "No")) 
+			if (GUI.getUserLeftButtonPressed(player.getName() + ": This Labor Camp's owner is bankrupt, would you like to buy it?", "Yes", "No")) 
 			{
 				player.withdrawBalance(super.getPrice());
 				super.setOwner(player);
@@ -41,12 +41,12 @@ public class LaborCamp extends Ownable {
 			}
 		}
 		else if (player == super.getOwner()) {
-			GUI.displayChanceCard("Welcome back!");
+			GUI.displayChanceCard(player.getName() + ": Welcome back!");
 		}
 		else { // HAR EJER
 			int rent = 0;
-			GUI.displayChanceCard("You have landed on " + super.getOwner().getName() + "'s Labor Camp.");
-			GUI.getUserButtonPressed("Roll the dice to determine the rent", "Roll Dice");
+			GUI.displayChanceCard(player.getName() + ": You have landed on " + super.getOwner().getName() + "'s Labor Camp.");
+			GUI.getUserButtonPressed(player.getName() + ": Roll the dice to determine the rent", "Roll Dice");
 			DiceCup dicecup = new DiceCup();
 			dicecup.newRoll();
 			GUI.setDice(dicecup.getDie1(), dicecup.getDie2());
@@ -54,7 +54,7 @@ public class LaborCamp extends Ownable {
 				rent = dicecup.getSum() * baseRent;
 			else if (super.getOwner().getLaborcamps() == 2)
 				rent = dicecup.getSum() * baseRent * 2;
-			GUI.displayChanceCard("The rent has been determined to be: " + rent);
+			GUI.displayChanceCard(player.getName() + ": The rent has been determined to be: " + rent);
 			player.withdrawBalance(rent);
 			super.getOwner().depositBalance(rent);
 		}	
