@@ -1,4 +1,6 @@
-package game;
+package fields;
+
+import game.Player;
 
 public abstract class Field {
 

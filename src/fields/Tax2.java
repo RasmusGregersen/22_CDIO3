@@ -1,4 +1,6 @@
-package game;
+package fields;
+
+import game.Player;
 
 public class Tax2 extends Field {
 

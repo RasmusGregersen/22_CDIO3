@@ -1,6 +1,7 @@
-package game;
+package fields;
 
 import desktop_resources.GUI;
+import game.Player;
 
 public class Refuge extends Field {
 	private int bonus;

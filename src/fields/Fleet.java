@@ -1,6 +1,7 @@
-package game;
+package fields;
 
 import desktop_resources.GUI;
+import game.Player;
 
 public class Fleet extends Ownable {
 	private int RENT_1 = 500;

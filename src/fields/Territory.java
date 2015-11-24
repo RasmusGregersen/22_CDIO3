@@ -1,8 +1,9 @@
-package game;
+package fields;
 
 import java.util.Arrays;
 
 import desktop_resources.GUI;
+import game.Player;
 
 public class Territory extends Ownable {
 

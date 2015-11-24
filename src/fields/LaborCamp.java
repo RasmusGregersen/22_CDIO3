@@ -1,6 +1,8 @@
-package game;
+package fields;
 
 import desktop_resources.GUI;
+import game.DiceCup;
+import game.Player;
 
 public class LaborCamp extends Ownable {
 	private int baseRent;
