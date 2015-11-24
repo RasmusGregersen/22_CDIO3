@@ -1,5 +1,7 @@
 package game;
 
+import java.util.Arrays;
+
 import desktop_resources.GUI;
 
 public class Territory extends Ownable {
@@ -12,32 +14,44 @@ public class Territory extends Ownable {
 		this.rent = rent;
 	}
 
+	
 
 	@Override
-	public void landOnField(Player player) {
-		if (super.getOwner() == null) { // IKKE HAR EJER
+	public String toString() {
+		return "Territory [getName()=" + getName() + ", getOwner()=" + getOwner() + ", getPrice()=" + 
+				getPrice() + ", getRent()=" + getRent() + "]\n";
+	}
+
+
+
+	@Override
+	public void landOnField(Player player) { // HAR RÅD?
+		if (player.getBalance() < super.getPrice()) {
+			GUI.displayChanceCard("You cannot afford this property.");
+		}		
+		else if (super.getOwner() == null) { // HAR EJER?
 			if (GUI.getUserLeftButtonPressed("This Territory has no owner, would you like to buy it?", "Yes", "No")) 
 			{
-				player.withdraw(super.getPrice());
+				player.withdrawBalance(super.getPrice());
 				super.setOwner(player);
 				GUI.setOwner(player.getFieldPos(), player.getName());
 			}
 		}
-		else if (super.getOwner().getBalance() == 0) {
+		else if (super.getOwner().getBalance() == 0) { // EJER RØGET UD AF SPILLET?
 			if (GUI.getUserLeftButtonPressed("This Territory's owner is bankrupt, would you like to buy it?", "Yes", "No")) 
 			{
-				player.withdraw(super.getPrice());
+				player.withdrawBalance(super.getPrice());
 				super.setOwner(player);
 				GUI.setOwner(player.getFieldPos(), player.getName());
 			}
 		}
-		else if (player == super.getOwner()) {
+		else if (player == super.getOwner()) { // ER SELV EJER?
 			GUI.displayChanceCard("Welcome back!");
 		}
 		else { // HAR EJER
 			GUI.displayChanceCard("You have landed on " + super.getOwner().getName() + "'s Territory. Rent is " + rent);
-			player.withdraw(rent);
-			super.getOwner().deposit(rent);
+			player.withdrawBalance(rent);
+			super.getOwner().depositBalance(rent);
 		}	
 	}
 	@Override

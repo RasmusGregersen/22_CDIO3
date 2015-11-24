@@ -17,10 +17,14 @@ public class Fleet extends Ownable {
 
 	@Override
 	public void landOnField(Player player) {
-		if (super.getOwner() == null) { // IKKE HAR EJER
+		if (player.getBalance() < super.getPrice()) {
+			GUI.displayChanceCard("You cannot afford this property.");
+		}
+
+		else if (super.getOwner() == null) { // IKKE HAR EJER
 			if (GUI.getUserLeftButtonPressed("This Fleet has no owner, would you like to buy it?", "Yes", "No")) 
 			{
-				player.withdraw(super.getPrice());
+				player.withdrawBalance(super.getPrice());
 				super.setOwner(player);
 				player.setFleets();
 				GUI.setOwner(player.getFieldPos(), player.getName());
@@ -29,7 +33,7 @@ public class Fleet extends Ownable {
 		else if (super.getOwner().getBalance() == 0) {
 			if (GUI.getUserLeftButtonPressed("This Fleet's owner is bankrupt, would you like to buy it?", "Yes", "No")) 
 			{
-				player.withdraw(super.getPrice());
+				player.withdrawBalance(super.getPrice());
 				super.setOwner(player);
 				GUI.setOwner(player.getFieldPos(), player.getName());
 			}
@@ -48,9 +52,15 @@ public class Fleet extends Ownable {
 			else if (super.getOwner().getFleets() == 4)
 				rent = RENT_4;
 			GUI.displayChanceCard("You have landed on " + super.getOwner().getName() + "'s Fleet. Rent is " + rent);
-			player.withdraw(rent);
-			super.getOwner().deposit(rent);
+			player.withdrawBalance(rent);
+			super.getOwner().depositBalance(rent);
 		}
+	}
+
+	@Override
+	public String toString() {
+		return "Fleet [getName()=" + getName() + ", getOwner()=" + getOwner() + ", getPrice()=" + 
+				getPrice() + ", getRent()=" + getRent() + "]\n";
 	}
 
 	@Override

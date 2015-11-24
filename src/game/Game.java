@@ -21,6 +21,7 @@ public class Game {
 	public static void main(String[] args) {
 		Game game = new Game();
 		game.go();
+
 	}
 	
 	public void go(){
@@ -78,7 +79,7 @@ public class Game {
 
 		
 		for (int i=0; i < playerCount; i++) {
-			Player tmp = new Player();
+			Player tmp = new Player("");
 		EnterName:	
 			while (true) {
 				String name = GUI.getUserString("Please enter the name of player" + (i+1)).trim();

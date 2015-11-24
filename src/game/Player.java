@@ -9,21 +9,25 @@ package game;
 
 public class Player {
 	private String name;
-	private Balance balance = new Balance();
+	private Balance balance = new Balance(30000);
 	private int fleets = 0;
 	private int FieldPos = 0;
 	private int laborcamps = 0;
+	
+	public Player(String name){
+		this.name = name;
+	}
 	
 	public int getBalance() {
 		return balance.getBalance();
 	}
 	// Method to withdraw from the balance
-	public int withdraw(int i) {
+	public int withdrawBalance(int i) {
 		balance.withdraw(i);
 		return balance.getBalance();
 	}
 	// Method to deposit from the balance
-	public int deposit(int i) {
+	public int depositBalance(int i) {
 		balance.deposit(i);
 		return balance.getBalance();
 	}

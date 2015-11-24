@@ -1,6 +1,7 @@
 package game;
 
 import java.awt.Color;
+import java.util.Arrays;
 import desktop_fields.Shipping;
 import desktop_fields.Start;
 import desktop_fields.Street;
@@ -17,6 +18,13 @@ public class GameBoard {
 		fieldValue[fieldID - 1].landOnField(player);
 	}
 	
+	
+	
+	@Override
+	public String toString() {
+		return Arrays.toString(fieldValue);
+	}
+
 	public GameBoard()
 	{
 		desktop_fields.Field[] fieldGUI = new desktop_fields.Field[21];

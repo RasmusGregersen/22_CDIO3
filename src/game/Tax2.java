@@ -16,6 +16,10 @@ public class Tax2 extends Field {
 
 	@Override
 	public void landOnField(Player player) {
-		player.withdraw(tax);
+		player.withdrawBalance(tax);
+	}
+	@Override
+	public String toString() {
+		return "Tax [getName()=" + getName() + ", getTax()=" + getTax() + "]\n";
 	}
 }
