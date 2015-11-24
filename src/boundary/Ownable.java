@@ -1,6 +1,6 @@
-package fields;
+package boundary;
 
-import game.Player;
+import entity.Player;
 
 public abstract class Ownable extends Field {
 	private int price;

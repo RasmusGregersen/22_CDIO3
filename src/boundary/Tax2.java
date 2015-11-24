@@ -1,7 +1,7 @@
-package fields;
+package boundary;
 
 import desktop_resources.GUI;
-import game.Player;
+import entity.Player;
 
 public class Tax2 extends Field {
 

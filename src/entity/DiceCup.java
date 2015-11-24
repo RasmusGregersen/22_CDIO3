@@ -5,7 +5,7 @@
 *
 * Copyright notice */
 
-package game;
+package entity;
 
 public class DiceCup {
 	private Die die1 = new Die();

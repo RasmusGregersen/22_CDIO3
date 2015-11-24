@@ -10,12 +10,12 @@ package controller;
 import java.awt.Color;
 import java.util.Set;
 
+import boundary.GameBoard;
 import desktop_codebehind.Car;
 import desktop_codebehind.Car.Builder;
 import desktop_resources.GUI;
-import game.DiceCup;
-import game.GameBoard;
-import game.Player;
+import entity.DiceCup;
+import entity.Player;
 
 public class Game {
 	private DiceCup dicecup = new DiceCup();

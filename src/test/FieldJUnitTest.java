@@ -3,9 +3,9 @@ package test;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-import fields.Field;
-import fields.Territory;
-import game.*;
+import boundary.Field;
+import boundary.Territory;
+import entity.*;
 
 public class FieldJUnitTest {
 	private Player player;

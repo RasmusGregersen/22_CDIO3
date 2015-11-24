@@ -1,6 +1,6 @@
-package fields;
+package boundary;
 
-import game.Player;
+import entity.Player;
 
 public abstract class Field {
 

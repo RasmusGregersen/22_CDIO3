@@ -1,4 +1,4 @@
-package game;
+package boundary;
 
 import java.awt.Color;
 import java.util.Arrays;
@@ -7,14 +7,7 @@ import desktop_fields.Shipping;
 import desktop_fields.Start;
 import desktop_fields.Street;
 import desktop_resources.GUI;
-import fields.Field;
-import fields.Fleet;
-import fields.LaborCamp;
-import fields.Ownable;
-import fields.Refuge;
-import fields.Tax;
-import fields.Tax2;
-import fields.Territory;
+import entity.Player;
 
 public class GameBoard {
 	private static Field[] fieldValue = new Field[21];

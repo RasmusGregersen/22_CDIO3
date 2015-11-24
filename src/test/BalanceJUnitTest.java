@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import game.Balance;
+import entity.Balance;
 
 public class BalanceJUnitTest{
 

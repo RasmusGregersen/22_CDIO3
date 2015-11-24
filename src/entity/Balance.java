@@ -5,7 +5,7 @@
  *
  * Copyright notice */
 
-package game;
+package entity;
 
 public class Balance {
 
