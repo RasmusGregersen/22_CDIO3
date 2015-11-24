@@ -30,8 +30,6 @@ public class Game {
 		Player[] players = new Player[6];
 		Car[] cars = new Car[playerCount];
 		
-		
-		
 		cars[0] = new Car.Builder()
 				.primaryColor(Color.BLUE)
 				.secondaryColor(Color.BLACK)
