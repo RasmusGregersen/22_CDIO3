@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.9" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="game.Die" project="22_CDIO3" file="/22_CDIO3/src/game/Die.java" binary="false" 
+  <class id="1" language="java" name="entity.Die" project="22_CDIO3" file="/22_CDIO3/src/entity/Die.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="155" width="111" x="396" y="358"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -10,7 +10,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="game.Player" project="22_CDIO3" file="/22_CDIO3/src/game/Player.java" 
+  <class id="2" language="java" name="entity.Player" project="22_CDIO3" file="/22_CDIO3/src/entity/Player.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="371" width="157" x="199" y="-53"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -19,7 +19,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="game.Balance" project="22_CDIO3" file="/22_CDIO3/src/game/Balance.java" 
+  <class id="3" language="java" name="entity.Balance" project="22_CDIO3" file="/22_CDIO3/src/entity/Balance.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="173" width="122" x="199" y="358"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -28,7 +28,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="game.DiceCup" project="22_CDIO3" file="/22_CDIO3/src/game/DiceCup.java" 
+  <class id="4" language="java" name="entity.DiceCup" project="22_CDIO3" file="/22_CDIO3/src/entity/DiceCup.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="173" width="111" x="396" y="-53"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -37,8 +37,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="game.GameBoard" project="22_CDIO3" file="/22_CDIO3/src/game/GameBoard.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
+  <class id="5" language="java" name="boundary.GameBoard" project="22_CDIO3" 
+    file="/22_CDIO3/src/boundary/GameBoard.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="155" width="154" x="547" y="-53"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -48,24 +48,36 @@
   </class>  
   <association id="6">    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="7" name="balance"/>      
-      <multiplicity id="8" minimum="0" maximum="1"/>    
+      <attribute id="7" name="balance">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="8" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="9">    
     <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="10" name="die1"/>      
-      <multiplicity id="11" minimum="0" maximum="1"/>    
+      <attribute id="10" name="die2">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="11" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="12">    
     <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="13" name="die2"/>      
-      <multiplicity id="14" minimum="0" maximum="1"/>    
+      <attribute id="13" name="die1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="14" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
