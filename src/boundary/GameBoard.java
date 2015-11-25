@@ -62,7 +62,7 @@ public class GameBoard {
 				.setDescription(fieldValue[3].getClass().getSimpleName())
 				.setSubText(""+((Ownable)fieldValue[3]).getPrice())
 				.setRent(""+((LaborCamp)fieldValue[3]).getBaseRent())
-				.setBgColor(Color.ORANGE)
+				.setBgColor(Color.LIGHT_GRAY)
 				.build();
 		
 		fieldValue[4] = new Territory("Mountain", 500, 2000);
@@ -132,7 +132,7 @@ public class GameBoard {
 				.setDescription(fieldValue[11].getClass().getSimpleName())
 				.setSubText(""+((Ownable)fieldValue[11]).getPrice())
 				.setRent(""+((LaborCamp)fieldValue[11]).getBaseRent())
-				.setBgColor(Color.ORANGE)
+				.setBgColor(Color.LIGHT_GRAY)
 				.build();
 		
 		fieldValue[12] = new Territory("Mountain Village", 1600, 4750);

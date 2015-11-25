@@ -35,41 +35,41 @@ public class Game {
 		
 		cars[0] = new Car.Builder()
 				.primaryColor(Color.BLUE)
-				.secondaryColor(Color.BLACK)
-				.typeCar()
+				.secondaryColor(Color.BLUE)
+				.typeUfo()
 				.patternFill()
 				.build();
 		cars[1] = new Car.Builder() // chaining
 				.primaryColor(Color.GREEN)
-				.secondaryColor(Color.BLACK)
+				.secondaryColor(Color.GREEN)
 				.typeCar()
 				.patternFill()
 				.build();
 		if (playerCount > 2) {
 			cars[2] = new Car.Builder() // chaining
 				.primaryColor(Color.ORANGE)
-				.secondaryColor(Color.BLACK)
-				.typeCar()
+				.secondaryColor(Color.ORANGE)
+				.typeRacecar()
 				.patternFill()
 				.build();
 			if (playerCount > 3) {
 				cars[3] = new Car.Builder() // chaining
 						.primaryColor(Color.YELLOW)
-						.secondaryColor(Color.BLACK)
+						.secondaryColor(Color.YELLOW)
 						.typeCar()
 						.patternFill()
 						.build();
 				if (playerCount > 4) {
 					cars[4] = new Car.Builder() // chaining
 							.primaryColor(Color.WHITE)
-							.secondaryColor(Color.BLACK)
-							.typeCar()
+							.secondaryColor(Color.WHITE)
+							.typeTractor()
 							.patternFill()
 							.build();
 					if (playerCount > 5) {
 						cars[5] = new Car.Builder() // chaining
 								.primaryColor(Color.CYAN)
-								.secondaryColor(Color.BLACK)
+								.secondaryColor(Color.CYAN)
 								.typeCar()
 								.patternFill()
 								.build();
