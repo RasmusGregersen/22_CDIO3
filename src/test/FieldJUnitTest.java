@@ -2,45 +2,66 @@ package test;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
-
-import boundary.Field;
-import boundary.Territory;
+import org.junit.runners.MethodSorters;
+import org.junit.FixMethodOrder;
+import boundary.*;
+import desktop_resources.GUI;
 import entity.*;
 
+
+@FixMethodOrder(MethodSorters.JVM)
 public class FieldJUnitTest {
-	private Player player;
-	private Field territory;
-	private Field laborcamp;
-	private Field fleet;
-	private Field tax;
-	private Field tax2;
-	private Field refuge;
+	GameBoard gameboard = new GameBoard();
+	Player player = new Player("Developer");
 	
 	@Test
 	public void TerritoryTest() {
-	this.player = new Player("Jens Ole");
-	this.territory = new Territory("Test", 500, 1000);
-	this.territory.landOnField(this.player);
+	GUI.displayChanceCard("Territory Test: Please select Yes in the GUI to test the landOnField() method.");
+	player.setFieldPos(1);
+	gameboard.setField(player.getFieldPos(), player);
+	int expected = 30000 - 1000;
+	int actual = this.player.getBalance();
+	assertEquals(expected, actual);
 	}
 	
 	@Test
-	public void tearDown() {
-		
+	public void LaborCampTest() {
+	GUI.displayChanceCard("Labor Camp Test: Please select Yes in the GUI to test the landOnField() method.");
+	player.setFieldPos(4);
+	gameboard.setField(player.getFieldPos(), player);
+	int expected = 30000 - 2500;
+	int actual = this.player.getBalance();
+	assertEquals(expected, actual);
 	}
 	
 	@Test
-	public void Territory() {
-		
+	public void FleetTest() {
+	GUI.displayChanceCard("Fleet Test: Please select Yes in the GUI to test the landOnField() method.");
+	player.setFieldPos(2);
+	gameboard.setField(player.getFieldPos(), player);
+	int expected = 30000 - 4000;
+	int actual = this.player.getBalance();
+	assertEquals(expected, actual);
 	}
 	
 	@Test
-	public void Tax() {
-		
+	public void RefugeTest() {
+	GUI.displayChanceCard("Refuge Test");
+	player.setFieldPos(6);
+	gameboard.setField(player.getFieldPos(), player);
+	int expected = 30000 + 5000;
+	int actual = this.player.getBalance();
+	assertEquals(expected, actual);
 	}
 	
 	@Test
-	public void Fleet() {
-		
+	public void TaxTest() {
+	GUI.displayChanceCard("Tax Test: Please select Fixed Tax in the GUI to test the landOnField() method.");
+	player.setFieldPos(18);
+	gameboard.setField(player.getFieldPos(), player);
+	int expected = 30000 - 4000;
+	int actual = this.player.getBalance();
+	assertEquals(expected, actual);
 	}
 
 }
