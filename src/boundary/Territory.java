@@ -25,12 +25,9 @@ public class Territory extends Ownable {
 
 
 
-	@Override
-	public void landOnField(Player player) { // HAR RÅD?
-		if (player.getBalance() < super.getPrice()) {
-			GUI.displayChanceCard(player.getName() + ": You cannot afford this property.");
-		}		
-		else if (super.getOwner() == null) { // HAR EJER?
+	@Override 
+	public void landOnField(Player player) { // landOnField method for Fleets overridden from Field class.
+		if (super.getOwner() == null) { // Checks if field has no Owner.
 			if (GUI.getUserLeftButtonPressed(player.getName() + ": This Territory has no owner, would you like to buy it?", "Yes", "No")) 
 			{
 				player.withdrawBalance(super.getPrice());
@@ -38,7 +35,10 @@ public class Territory extends Ownable {
 				GUI.setOwner(player.getFieldPos(), player.getName());
 			}
 		}
-		else if (super.getOwner().getBalance() == 0) { // EJER RØGET UD AF SPILLET?
+		else if (player.getBalance() < super.getPrice()) { // Checks if the player can afford to buy the field.
+			GUI.displayChanceCard(player.getName() + ": You cannot afford this property.");
+		}
+		else if (super.getOwner().getBalance() == 0) { // Checks if the owner is bankrupt.
 			if (GUI.getUserLeftButtonPressed(player.getName() + ": This Territory's owner is bankrupt, would you like to buy it?", "Yes", "No")) 
 			{
 				player.withdrawBalance(super.getPrice());
@@ -46,10 +46,10 @@ public class Territory extends Ownable {
 				GUI.setOwner(player.getFieldPos(), player.getName());
 			}
 		}
-		else if (player == super.getOwner()) { // ER SELV EJER?
+		else if (player == super.getOwner()) { // Checks if the actual player is the owner.
 			GUI.displayChanceCard(player.getName() + ": Welcome back!");
 		}
-		else { // HAR EJER
+		else { // Otherwise the field must be owned by another player.
 			GUI.displayChanceCard(player.getName() + ": You have landed on " + super.getOwner().getName() + "'s Territory. Rent is " + rent);
 			player.withdrawBalance(rent);
 			super.getOwner().depositBalance(rent);

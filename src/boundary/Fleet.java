@@ -8,8 +8,7 @@ public class Fleet extends Ownable {
 	private int RENT_2 = 1000;
 	private int RENT_3 = 2000;
 	private int RENT_4 = 4000;
-	private int rent;
-
+	private int rent; // Actual rent variable.
 
 	public Fleet(String name, int RENT_1, int price) 
 	{
@@ -17,13 +16,9 @@ public class Fleet extends Ownable {
 		this.RENT_1 = RENT_1;
 	}
 
-	@Override
-	public void landOnField(Player player) {
-		if (player.getBalance() < super.getPrice()) {
-			GUI.displayChanceCard(player.getName() + ": You cannot afford this property.");
-		}
-
-		else if (super.getOwner() == null) { // IKKE HAR EJER
+	@Override 
+	public void landOnField(Player player) { // landOnField method for Fleets overridden from Field class. 
+		if (super.getOwner() == null) { // Checks if field has no Owner.
 			if (GUI.getUserLeftButtonPressed(player.getName() + ": This Fleet has no owner, would you like to buy it?", "Yes", "No")) 
 			{
 				player.withdrawBalance(super.getPrice());
@@ -32,7 +27,10 @@ public class Fleet extends Ownable {
 				GUI.setOwner(player.getFieldPos(), player.getName());
 			}
 		}
-		else if (super.getOwner().getBalance() == 0) {
+		else if (player.getBalance() < super.getPrice()) { // Checks if the player can afford to buy the field.
+			GUI.displayChanceCard(player.getName() + ": You cannot afford this property.");
+		}
+		else if (super.getOwner().getBalance() == 0) { // Checks if the owner is bankrupt.
 			if (GUI.getUserLeftButtonPressed(player.getName() + ": This Fleet's owner is bankrupt, would you like to buy it?", "Yes", "No")) 
 			{
 				player.withdrawBalance(super.getPrice());
@@ -40,10 +38,10 @@ public class Fleet extends Ownable {
 				GUI.setOwner(player.getFieldPos(), player.getName());
 			}
 		}
-		else if (player == super.getOwner()) {
+		else if (player == super.getOwner()) { // Checks if the actual player is the owner.
 			GUI.displayChanceCard(player.getName() + ": Welcome back!");
 		}
-		else { // HAR EJER
+		else { 
 			if (super.getOwner().getFleets() == 1)
 				rent = RENT_1;
 			else if (super.getOwner().getFleets() == 2)
@@ -66,6 +64,6 @@ public class Fleet extends Ownable {
 
 	@Override
 	public int getRent() {
-		return RENT_1;
+		return rent;
 	}
 }
