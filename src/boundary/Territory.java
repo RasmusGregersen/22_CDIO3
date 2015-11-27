@@ -27,16 +27,16 @@ public class Territory extends Ownable {
 
 	@Override 
 	public void landOnField(Player player) { // landOnField method for Fleets overridden from Field class.
-		if (super.getOwner() == null) { // Checks if field has no Owner.
-			if (player.getBalance() < super.getPrice()) { // Checks if the player can afford to buy the field.
-				GUI.displayChanceCard(player.getName() + ": You cannot afford this property.");
-			}
-			else if (GUI.getUserLeftButtonPressed(player.getName() + ": This Territory has no owner, would you like to buy it?", "Yes", "No")) 
+		if (super.getOwner() == null && player.getBalance() > super.getPrice()) { // Checks if field has no Owner.
+			if (GUI.getUserLeftButtonPressed(player.getName() + ": This Territory has no owner, would you like to buy it?", "Yes", "No")) 
 			{
 				player.withdrawBalance(super.getPrice());
 				super.setOwner(player);
 				GUI.setOwner(player.getFieldPos(), player.getName());
 			}
+		}
+		else if (player.getBalance() < super.getPrice()) { // Checks if the player can afford to buy the field.
+			GUI.displayChanceCard(player.getName() + ": You cannot afford this property.");
 		}
 		else if (super.getOwner().getBalance() == 0) { // Checks if the owner is bankrupt.
 			if (GUI.getUserLeftButtonPressed(player.getName() + ": This Territory's owner is bankrupt, would you like to buy it?", "Yes", "No")) 

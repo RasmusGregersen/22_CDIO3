@@ -19,7 +19,7 @@ public class LaborCamp extends Ownable {
 
 	@Override
 	public void landOnField(Player player) { // landOnField method for Fleets overridden from Field class.
-		if (super.getOwner() == null) { // Checks if field has no Owner.
+		if (super.getOwner() == null && player.getBalance() > super.getPrice()) { // Checks if field has no Owner.
 			if (GUI.getUserLeftButtonPressed(player.getName() + ": This Labor Camp has no owner, would you like to buy it?", "Yes", "No")) 
 			{
 				player.withdrawBalance(super.getPrice());
