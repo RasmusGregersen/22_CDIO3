@@ -141,6 +141,7 @@ public class Game {
 	}
 	// Method to remove the player, which is triggered when a player's balance reaches 0.
 	public void removeplayer(Player player) {
+		GUI.showMessage(player.getName() + " has gone bankrupt");
 		playerCount = playerCount - 1;
 		GUI.removeAllCars(player.getName());
 	}
