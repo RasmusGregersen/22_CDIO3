@@ -9,10 +9,9 @@ public class Fleet extends Ownable {
 	private int RENT_3 = 2000;
 	private int RENT_4 = 4000;
 
-	public Fleet(String name, int RENT_1, int price) 
+	public Fleet(String name, int price) 
 	{
 		super(name, price);
-		this.RENT_1 = RENT_1;
 	}
 
 	@Override 
@@ -42,14 +41,18 @@ public class Fleet extends Ownable {
 		}
 		else { 
 			int rent = 0;
-			if (super.getOwner().getFleets() == 1)
+			if (super.getOwner().getFleets() == 1) {
 				rent = RENT_1;
-			else if (super.getOwner().getFleets() == 2)
+			}
+			else if (super.getOwner().getFleets() == 2) {
 				rent = RENT_2;
-			else if (super.getOwner().getFleets() == 3)
-				rent = RENT_3;
-			else if (super.getOwner().getFleets() == 4)
-				rent = RENT_4;
+			}
+			else if (super.getOwner().getFleets() == 3) {
+				rent = this.RENT_3;
+			}
+			else if (super.getOwner().getFleets() == 4) {
+				rent = this.RENT_4;
+			}
 			GUI.displayChanceCard(player.getName() + ": You have landed on " + super.getOwner().getName() + "'s Fleet. Rent is " + rent);
 			player.withdrawBalance(rent);
 			super.getOwner().depositBalance(rent);

@@ -38,7 +38,7 @@ public class GameBoard {
 				.setBgColor(Color.CYAN)
 				.build();
 		
-		fieldValue[1] = new Fleet ("Second Sail", 1, 4000);
+		fieldValue[1] = new Fleet ("Second Sail", 4000);
 		fieldGUI[1] = new Street.Builder()
 				.setTitle(fieldValue[1].getName())
 				.setDescription(fieldValue[1].getClass().getSimpleName())
@@ -91,7 +91,7 @@ public class GameBoard {
 				.setBgColor(Color.CYAN)
 				.build();
 		
-		fieldValue[7] = new Fleet ("Sea Grover", 1, 4000);
+		fieldValue[7] = new Fleet ("Sea Grover", 4000);
 		fieldGUI[7] = new Street.Builder()
 				.setTitle(fieldValue[7].getName())
 				.setDescription(fieldValue[7].getClass().getSimpleName())
@@ -144,7 +144,7 @@ public class GameBoard {
 				.setBgColor(Color.CYAN)
 				.build();
 		
-		fieldValue[13] = new Fleet ("The Buccaneers", 1, 4000);
+		fieldValue[13] = new Fleet ("The Buccaneers", 4000);
 		fieldGUI[13] = new Street.Builder()
 				.setTitle(fieldValue[13].getName())
 				.setDescription(fieldValue[13].getClass().getSimpleName())
@@ -196,7 +196,7 @@ public class GameBoard {
 				.setBgColor(Color.CYAN)
 				.build();
 		
-		fieldValue[19] = new Fleet ("Private armade", 1, 4000);
+		fieldValue[19] = new Fleet ("Private armade", 4000);
 		fieldGUI[19] = new Street.Builder()
 				.setTitle(fieldValue[19].getName())
 				.setDescription(fieldValue[19].getClass().getSimpleName())
