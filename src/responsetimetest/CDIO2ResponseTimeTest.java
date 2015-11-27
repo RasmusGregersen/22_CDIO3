@@ -1,10 +1,10 @@
-package test;
+package responsetimetest;
 import java.awt.Color;
 import java.util.Set;
 import desktop_codebehind.Car;
 import desktop_codebehind.Car.Builder;
 import desktop_resources.GUI;
-import game.*;
+import responsetimetest.*;
 
 /* Description:
 * This tests starts when the player press OK, 
@@ -22,7 +22,6 @@ public class CDIO2ResponseTimeTest {
 		DiceCup dicecup = new DiceCup();
 		Player player1 = new Player();
 		Player player2 = new Player();
-		Language language = new Language();
 		int fields = 0;
 		
 		
@@ -44,18 +43,7 @@ public class CDIO2ResponseTimeTest {
 		
 		String name1 = "Player 1";
 		String name2 = "Player 2";
-		boolean Continue = false;
 		
-		while (Continue == false) {
-			if (name1.length() < 1 || name1.length() > 15 || name1.indexOf(" ") == 0)
-				name1 = GUI.getUserString(language.getInvalid1());	
-			else if (name2.length() < 1 || name2.length() > 15 || name2.indexOf(" ") == 0)
-				name2 = GUI.getUserString(language.getInvalid2());
-			else if (name1.equals(name2))
-				name2 = GUI.getUserString(language.getnotEqual());
-			else
-				Continue = true;
-		}
 		// set player names from GUI input.
 		player1.setName(name1);
 		player2.setName(name2);
