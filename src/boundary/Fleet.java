@@ -8,7 +8,6 @@ public class Fleet extends Ownable {
 	private int RENT_2 = 1000;
 	private int RENT_3 = 2000;
 	private int RENT_4 = 4000;
-	private int rent; // Actual rent variable.
 
 	public Fleet(String name, int RENT_1, int price) 
 	{
@@ -42,6 +41,7 @@ public class Fleet extends Ownable {
 			GUI.displayChanceCard(player.getName() + ": Welcome back!");
 		}
 		else { 
+			int rent = 0;
 			if (super.getOwner().getFleets() == 1)
 				rent = RENT_1;
 			else if (super.getOwner().getFleets() == 2)
@@ -64,6 +64,6 @@ public class Fleet extends Ownable {
 
 	@Override
 	public int getRent() {
-		return rent;
+		return RENT_1;
 	}
 }
