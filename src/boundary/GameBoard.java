@@ -10,13 +10,13 @@ import desktop_resources.GUI;
 import entity.Player;
 
 public class GameBoard {
-	private static Field[] fieldValue = new Field[21];
+	private static Field[] fieldValue = new Field[21]; // Field array created
 	
-	public Field getField(int fieldID) {
+	public Field getField(int fieldID) { // getter for the array
 		return fieldValue[fieldID];
 		}
 	
-	public static void setField(int fieldID, Player player) {
+	public static void setField(int fieldID, Player player) { // method to trigger landOnField method.
 		fieldValue[fieldID - 1].landOnField(player);
 	}
 	
@@ -25,7 +25,7 @@ public class GameBoard {
 		return Arrays.toString(fieldValue);
 	}
 
-	public GameBoard()
+	public GameBoard() // Constructor for GameBoard to fill Field array and create GUI.
 	{
 		desktop_fields.Field[] fieldGUI = new desktop_fields.Field[21];
 		

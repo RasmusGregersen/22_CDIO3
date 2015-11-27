@@ -1,8 +1,15 @@
+/*
+ * Field
+ *
+ * Final
+ *
+ * Copyright notice */
+
 package boundary;
 
 import entity.Player;
 
-public abstract class Field {
+public abstract class Field { // Abstract class declared
 
 	private String name;
 	
@@ -14,5 +21,5 @@ public abstract class Field {
 		return name;
 	}
 
-	public abstract void landOnField(Player player);
+	public abstract void landOnField(Player player); // Abstract method declared, to be inherited by child classes.
 }

@@ -2,7 +2,7 @@ package boundary;
 
 import entity.Player;
 
-public abstract class Ownable extends Field {
+public abstract class Ownable extends Field { // Abstract class declared
 	private int price;
 	private Player owner;
 	
@@ -27,6 +27,6 @@ public abstract class Ownable extends Field {
 	public void landOnField(Player player) {
 	}	
 	
-	public abstract int getRent();
+	public abstract int getRent(); // Abstract method declared, to be inherited by child classes.
 	
 }

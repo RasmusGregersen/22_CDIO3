@@ -33,10 +33,12 @@ public class Game {
 		Player[] players = new Player[6];
 		Car[] cars = new Car[playerCount];
 		
+		// Cars for the GUI created
+		
 		cars[0] = new Car.Builder()
 				.primaryColor(Color.BLUE)
 				.secondaryColor(Color.BLUE)
-				.typeUfo()
+				.typeCar()
 				.patternFill()
 				.build();
 		cars[1] = new Car.Builder() // chaining
@@ -49,7 +51,7 @@ public class Game {
 			cars[2] = new Car.Builder() // chaining
 				.primaryColor(Color.ORANGE)
 				.secondaryColor(Color.ORANGE)
-				.typeRacecar()
+				.typeCar()
 				.patternFill()
 				.build();
 			if (playerCount > 3) {
@@ -63,7 +65,7 @@ public class Game {
 					cars[4] = new Car.Builder() // chaining
 							.primaryColor(Color.WHITE)
 							.secondaryColor(Color.WHITE)
-							.typeTractor()
+							.typeCar()
 							.patternFill()
 							.build();
 					if (playerCount > 5) {
@@ -78,7 +80,7 @@ public class Game {
 			}
 		}
 
-		
+		// Name check.
 		for (int i=0; i < playerCount; i++) {
 			Player tmp = new Player("");
 		EnterName:	
@@ -104,7 +106,8 @@ public class Game {
 			players[i] = tmp;
 			// Mangler at tage højde for at de skal have forskellige navne + biler er tilfældige.
 		}
-		boolean win = false;
+		
+		// Our game loop. playerCount is deducted by 1 everytime a player is eliminated, and when 1 remains the winner is found.
 		while (playerCount > 1)
 		{
 			if (players[0].getBalance() > 0)
@@ -123,8 +126,8 @@ public class Game {
 		GUI.showMessage("Congratulations! You have won!");
 	}
 	
-	private void turn(Player player) {
-		
+	// Turn method that is invoked just above.
+	private void turn(Player player) {	
 		GUI.getUserButtonPressed("Roll die", player.getName()+ "'s turn");
 		GUI.removeAllCars(player.getName());
 		dicecup.newRoll();
@@ -136,9 +139,8 @@ public class Game {
 		if (player.getBalance() == 0)
 			removeplayer(player);
 	}
-	
+	// Method to remove the player, which is triggered when a player's balance reaches 0.
 	public void removeplayer(Player player) {
-		// Remove player metode - Fjern owner fra GUI, fjern bil fra GUI, fjern evt. Balance. (Ændre navn).
 		playerCount = playerCount - 1;
 		GUI.removeAllCars(player.getName());
 	}
